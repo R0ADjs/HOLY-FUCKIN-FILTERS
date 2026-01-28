@@ -1,10 +1,13 @@
-name: gn-hel
+name: GnMathIsGay
 
 on:
   workflow_dispatch:
   schedule:
-    - cron: '0 */20 * * *'
-
+    - cron: '0 */1 * * *'
+    
+permissions:
+  contents: write
+  
 jobs:
   generate:
     runs-on: ubuntu-latest
@@ -20,7 +23,7 @@ jobs:
     - name: Commit and push changes
       run: |
         git config user.name "github-actions[bot]"
-        git config user.email "082011jg@gmail.com"
-        git add 
+        git config user.email "github-actions[bot]@users.noreply.github.com"
+        git add GnMathIsGay
         git commit -m "authTokenPush" || echo "authTokenPush"
         git push

@@ -15,7 +15,7 @@ jobs:
 
     - name: Fetch new content
       run: |
-        curl -s https://gnmaath-is-gay.082011jg.workers.dev > 
+        curl -s https://gnmaath-is-gay.082011jg.workers.dev > GnMathIsGay
 
     - name: Commit and push changes
       run: |

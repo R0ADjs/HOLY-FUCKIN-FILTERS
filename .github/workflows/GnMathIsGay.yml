@@ -1,0 +1,29 @@
+name: GnMathIsGay
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 */1 * * *'
+    
+permissions:
+  contents: write
+  
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repo
+      uses: actions/checkout@v4
+
+    - name: Fetch new content
+      run: |
+        curl -s https://gnmaath-is-gay.082011jg.workers.dev > GnMathIsGay
+
+    - name: Commit and push changes
+      run: |
+        git config user.name "github-actions[bot]"
+        git config user.email "github-actions[bot]@users.noreply.github.com"
+        git add GnMathIsGay
+        git commit -m "authTokenPush" || echo "authTokenPush"
+        git push
